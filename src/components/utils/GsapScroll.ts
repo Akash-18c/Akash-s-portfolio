@@ -1,4 +1,22 @@
 import gsap from "gsap";
+import * as THREE from "three";
+
+export function setCharTimeline(
+  character: THREE.Object3D,
+  camera: THREE.PerspectiveCamera
+) {
+  if (window.innerWidth > 1024) {
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: ".career-section",
+        start: "top bottom",
+        end: "top top",
+        scrub: true,
+        invalidateOnRefresh: true,
+      },
+    }).fromTo(camera.position, { z: 24.7 }, { z: 18, duration: 1 });
+  }
+}
 
 export function setAllTimeline() {
   const careerTimeline = gsap.timeline({

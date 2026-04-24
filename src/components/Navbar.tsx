@@ -7,7 +7,7 @@ import OverlayMenu from "./OverlayMenu";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-gsap.config({ trialWarn: false });
+// gsap.config({ trialWarn: false });
 export let smoother: ScrollSmoother;
 
 const Navbar = () => {

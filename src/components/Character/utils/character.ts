@@ -28,7 +28,7 @@ const setCharacter = (
           async (gltf) => {
             character = gltf.scene;
             await renderer.compileAsync(character, camera, scene);
-            character.traverse((child: any) => {
+            character.traverse((child: THREE.Object3D) => {
               if (child.isMesh) {
                 const mesh = child as THREE.Mesh;
                 child.castShadow = true;
