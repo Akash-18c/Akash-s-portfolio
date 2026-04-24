@@ -2,7 +2,7 @@ import gsap from "gsap";
 import * as THREE from "three";
 
 export function setCharTimeline(
-  character: THREE.Object3D,
+  _character: THREE.Object3D,
   camera: THREE.PerspectiveCamera
 ) {
   if (window.innerWidth > 1024) {
