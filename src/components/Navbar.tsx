@@ -13,6 +13,13 @@ export let smoother: ScrollSmoother;
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setTimeout(() => {
+      if (smoother) smoother.paused(false);
+    }, 50);
+  };
+
   useEffect(() => {
     smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
@@ -84,7 +91,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      <OverlayMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+      <OverlayMenu isOpen={menuOpen} onClose={closeMenu} />
 
       <div className="landing-circle1" />
       <div className="landing-circle2" />

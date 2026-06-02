@@ -20,6 +20,7 @@ const OverlayMenu = ({ isOpen, onClose }: Props) => {
   const handleClick = (href: string) => {
     onClose();
     setTimeout(() => {
+      if (smoother) smoother.paused(false);
       if (window.innerWidth > 1024 && smoother) {
         smoother.scrollTo(href, true, "top top");
       } else {
