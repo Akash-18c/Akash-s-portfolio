@@ -34,7 +34,7 @@
 }
 .what-box-in {
   flex-direction: column;
-  height: 500px;
+  height: 560px;
   margin-left: 200px;
   position: relative;
   display: flex;
@@ -44,40 +44,41 @@
   height: 33%;
   min-height: 50%;
   transition: 0.5s;
-  /* border: 0.5px dashed rgba(255, 255, 255, 0.3); */
   position: relative;
-  padding: 50px;
+  padding: 30px 50px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .what-noTouch:hover,
 .what-content-active {
-  min-height: 67%;
-  padding: 40px 50px;
+  min-height: 72%;
+  padding: 30px 50px;
 }
 
 .what-noTouch:hover ~ .what-content,
 .what-box-in:hover .what-noTouch:not(:hover),
 .what-content.what-sibling {
-  min-height: 33%;
+  min-height: 28%;
   padding: 10px 50px;
 }
 .what-content h3 {
   font-size: 35px;
   letter-spacing: 1px;
-  margin: 0;
+  margin: 0 0 2px 0;
 }
 .what-content p {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 12px;
+  line-height: 1.55;
   font-weight: 200;
-  letter-spacing: 0.7px;
+  letter-spacing: 0.5px;
+  margin: 2px 0 0 0;
 }
 .what-content h4 {
   font-weight: 300;
   letter-spacing: 1px;
-  margin: 0px;
-  font-size: 14px;
+  margin: 0 0 4px 0;
+  font-size: 12px;
   opacity: 0.3;
 }
 .what-content-in {
@@ -207,14 +208,17 @@
 .what-content-in {
   height: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .what-content-in h5 {
   font-weight: 300;
   opacity: 0.5;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 1px;
   font-family: "Geist", sans-serif;
-  margin-bottom: 5px;
+  margin: 6px 0 5px 0;
+  flex-shrink: 0;
 }
 @keyframes whatBorders {
   80% {
@@ -228,16 +232,21 @@
 }
 .what-content-flex {
   display: flex;
-  gap: 5px;
+  gap: 4px;
   flex-wrap: wrap;
+  row-gap: 4px;
+  overflow: hidden;
 }
 .what-tags {
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 400;
-  padding: 2px 7px;
-  background-color: rgba(255, 255, 255, 0.15);
-  border: 1px solid #ffffff50;
+  padding: 2px 8px;
+  background-color: rgba(255,255,255,0.08);
+  border: 1px solid rgba(194,164,255,0.30);
   border-radius: 30px;
+  white-space: nowrap;
+  color: rgba(255,255,255,0.80);
+  line-height: 1.6;
 }
 @media only screen and (max-width: 1600px) {
   .what-box h2 {
@@ -249,7 +258,7 @@
     margin-right: 20%;
   }
   .what-box-in {
-    height: 400px;
+    height: 560px;
   }
   .what-content h3 {
     font-size: 28px;
@@ -290,7 +299,7 @@
     padding-bottom: 50px;
   }
   .what-box-in {
-    height: 500px;
+    height: 560px;
     margin-left: -50px;
   }
   .what-content {
@@ -326,7 +335,7 @@
     justify-content: left;
   }
   .what-box:last-child {
-    height: 500px;
+    height: 560px;
   }
   .what-box {
     width: 500px;
@@ -338,7 +347,7 @@
   }
   .what-box-in {
     margin-left: 0px;
-    height: 450px;
+    height: 520px;
   }
   .what-content h5,
   .what-content-flex {

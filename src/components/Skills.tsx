@@ -1,24 +1,42 @@
 import { useEffect, useRef, useState } from "react";
-import { FaJava, FaReact } from "react-icons/fa";
+import { FaJava } from "react-icons/fa";
+import { VscCode } from "react-icons/vsc";
 import {
-  SiNextdotjs, SiTypescript, SiTailwindcss, SiFastapi,
-  SiPython, SiDocker, SiMongodb, SiAngular,
+  SiPython, SiTensorflow, SiPytorch, SiKeras, SiScikitlearn,
+  SiNumpy, SiPandas, SiOpencv, SiJupyter, SiStreamlit,
+  SiFlask, SiFastapi, SiMysql, SiPostgresql, SiMongodb,
+  SiGit, SiGithub, SiDocker, SiLinux, SiPlotly, SiAnaconda,
+  SiReact, SiNextdotjs, SiTypescript,
 } from "react-icons/si";
-import { DiNodejsSmall } from "react-icons/di";
 import "./styles/Skills.css";
 
 const skills = [
-  { icon: <FaJava />,        name: "Java",         category: "Language" },
-  { icon: <SiPython />,      name: "Python",       category: "Language" },
-  { icon: <SiTypescript />,  name: "TypeScript",   category: "Language" },
-  { icon: <FaReact />,       name: "React",        category: "Frontend" },
-  { icon: <SiNextdotjs />,   name: "Next.js",      category: "Frontend" },
-  { icon: <SiAngular />,     name: "Angular",      category: "Frontend" },
-  { icon: <SiTailwindcss />, name: "Tailwind",     category: "Frontend" },
-  { icon: <DiNodejsSmall />, name: "Node.js",      category: "Backend"  },
-  { icon: <SiFastapi />,     name: "FastAPI",      category: "Backend"  },
-  { icon: <SiMongodb />,     name: "MongoDB",      category: "Database" },
-  { icon: <SiDocker />,      name: "Docker",       category: "DevOps"   },
+  { icon: <SiPython />,       name: "Python",        category: "Language"  },
+  { icon: <FaJava />,         name: "Java",          category: "Language"  },
+  { icon: <SiTypescript />,   name: "TypeScript",    category: "Language"  },
+  { icon: <SiTensorflow />,   name: "TensorFlow",    category: "AI / ML"   },
+  { icon: <SiPytorch />,      name: "PyTorch",       category: "AI / ML"   },
+  { icon: <SiKeras />,        name: "Keras",         category: "AI / ML"   },
+  { icon: <SiScikitlearn />,  name: "Scikit-learn",  category: "AI / ML"   },
+  { icon: <SiOpencv />,       name: "OpenCV",        category: "AI / ML"   },
+  { icon: <SiNumpy />,        name: "NumPy",         category: "Data"      },
+  { icon: <SiPandas />,       name: "Pandas",        category: "Data"      },
+  { icon: <SiPlotly />,       name: "Plotly",        category: "Data"      },
+  { icon: <SiJupyter />,      name: "Jupyter",       category: "Tools"     },
+  { icon: <SiAnaconda />,     name: "Anaconda",      category: "Tools"     },
+  { icon: <SiStreamlit />,    name: "Streamlit",     category: "Tools"     },
+  { icon: <SiFlask />,        name: "Flask",         category: "Backend"   },
+  { icon: <SiFastapi />,      name: "FastAPI",       category: "Backend"   },
+  { icon: <SiReact />,        name: "React",         category: "Frontend"  },
+  { icon: <SiNextdotjs />,    name: "Next.js",       category: "Frontend"  },
+  { icon: <SiMysql />,        name: "MySQL",         category: "Database"  },
+  { icon: <SiPostgresql />,   name: "PostgreSQL",    category: "Database"  },
+  { icon: <SiMongodb />,      name: "MongoDB",       category: "Database"  },
+  { icon: <SiGit />,          name: "Git",           category: "DevOps"    },
+  { icon: <SiGithub />,       name: "GitHub",        category: "DevOps"    },
+  { icon: <SiDocker />,       name: "Docker",        category: "DevOps"    },
+  { icon: <SiLinux />,        name: "Linux",         category: "DevOps"    },
+  { icon: <VscCode />,        name: "VS Code",       category: "Tools"     },
 ];
 
 const repeated = [...skills, ...skills];

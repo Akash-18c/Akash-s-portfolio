@@ -1,9 +1,10 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 import emailjs from "@emailjs/browser";
 import { MdClose, MdSend } from "react-icons/md";
 import { FaGithub, FaLinkedinIn, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import "./styles/Contact.css";
+import { smoother } from "./Navbar";
 
 const services = [
   "Web Development",
@@ -21,6 +22,20 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
   const [senderName, setSenderName] = useState("");
   const [status, setStatus] = useState<Status>("idle");
+
+  // Pause ScrollSmoother when user focuses any input — prevents mobile redirect
+  useEffect(() => {
+    const pause = () => { if (smoother) smoother.paused(true); };
+    const resume = () => { if (smoother) smoother.paused(false); };
+    const form = formRef.current;
+    if (!form) return;
+    form.addEventListener("focusin", pause);
+    form.addEventListener("focusout", resume);
+    return () => {
+      form.removeEventListener("focusin", pause);
+      form.removeEventListener("focusout", resume);
+    };
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>

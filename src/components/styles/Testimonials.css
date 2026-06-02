@@ -111,33 +111,57 @@
 /* ── Card ── */
 .tr-card {
   position: relative;
-  border-radius: 20px;
+  border-radius: 24px;
   padding: 30px 28px 26px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   z-index: 4;
+  isolation: isolate;
 
   background: linear-gradient(
     145deg,
-    rgba(255,255,255,0.06) 0%,
-    rgba(194,164,255,0.06) 55%,
-    rgba(80,200,240,0.03) 100%
+    rgba(255,255,255,0.09) 0%,
+    rgba(194,164,255,0.07) 40%,
+    rgba(80,200,240,0.04) 100%
   );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.09);
+  backdrop-filter: blur(32px) saturate(180%) brightness(1.08);
+  -webkit-backdrop-filter: blur(32px) saturate(180%) brightness(1.08);
+  border-top: 1px solid rgba(255,255,255,0.22);
+  border-left: 1px solid rgba(255,255,255,0.14);
+  border-right: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
   box-shadow:
-    0 4px 32px rgba(0,0,0,0.30),
-    inset 0 1px 0 rgba(255,255,255,0.09);
+    0 8px 40px rgba(0,0,0,0.35),
+    0 2px 8px rgba(0,0,0,0.20),
+    inset 0 1.5px 0 rgba(255,255,255,0.22),
+    inset 0 -1px 0 rgba(194,164,255,0.06);
   transition: border-color 0.35s, box-shadow 0.35s, transform 0.35s;
 }
+
+/* top gloss arc */
+.tr-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 8%; right: 8%;
+  height: 45%;
+  border-radius: 0 0 60% 60%;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.10) 0%,
+    transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .tr-card:hover {
-  border-color: rgba(194,164,255,0.28);
+  border-top-color: rgba(255,255,255,0.32);
+  border-left-color: rgba(194,164,255,0.28);
   box-shadow:
-    0 12px 48px rgba(120,60,255,0.22),
-    inset 0 1px 0 rgba(255,255,255,0.14);
-  transform: translateY(-5px);
+    0 16px 56px rgba(120,60,255,0.28),
+    0 4px 16px rgba(0,0,0,0.30),
+    inset 0 1.5px 0 rgba(255,255,255,0.30),
+    inset 0 -1px 0 rgba(194,164,255,0.10);
+  transform: translateY(-6px);
 }
 
 /* glow blob */
@@ -196,30 +220,59 @@
 /* avatar */
 .tr-avatar {
   position: relative;
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-  font-weight: 700;
-  color: #0b080c;
-  background: linear-gradient(135deg, var(--ac), color-mix(in srgb, var(--ac) 55%, #fff));
+  background: var(--ab);
+  border: 1.5px solid color-mix(in srgb, var(--ac) 50%, transparent);
   box-shadow:
-    0 4px 18px color-mix(in srgb, var(--ac) 35%, transparent),
-    inset 0 1px 0 rgba(255,255,255,0.35);
+    0 0 0 3px color-mix(in srgb, var(--ac) 12%, transparent),
+    0 4px 16px color-mix(in srgb, var(--ac) 25%, transparent);
   overflow: hidden;
+  transition: box-shadow 0.35s, transform 0.35s;
 }
-.tr-avatar span { position: relative; z-index: 1; }
+
 .tr-avatar::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0; left: 10%; right: 10%;
   height: 50%;
-  background: linear-gradient(180deg, rgba(255,255,255,0.28) 0%, transparent 100%);
-  border-radius: 14px 14px 0 0;
+  border-radius: 0 0 50% 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.tr-card:hover .tr-avatar {
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--ac) 28%, transparent),
+    0 6px 22px color-mix(in srgb, var(--ac) 45%, transparent);
+  transform: scale(1.05);
+}
+
+.tr-avatar-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 1;
+  filter: grayscale(1) contrast(1.1) brightness(1.05);
+}
+
+.tr-avatar-initials {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--ac);
+  position: relative;
+  z-index: 0;
+  -webkit-font-smoothing: antialiased;
 }
 
 .tr-info { display: flex; flex-direction: column; gap: 2px; }

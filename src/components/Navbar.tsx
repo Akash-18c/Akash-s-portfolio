@@ -30,10 +30,15 @@ const Navbar = () => {
     document.querySelectorAll(".header ul a").forEach((elem) => {
       const element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          const el = e.currentTarget as HTMLAnchorElement;
-          smoother.scrollTo(el.getAttribute("data-href"), true, "top top");
+        e.preventDefault();
+        const el = e.currentTarget as HTMLAnchorElement;
+        const target = el.getAttribute("data-href") || el.getAttribute("href");
+        if (!target) return;
+        if (window.innerWidth > 1024 && smoother) {
+          smoother.scrollTo(target, true, "top top");
+        } else {
+          const section = document.querySelector(target) as HTMLElement;
+          if (section) section.scrollIntoView({ behavior: "smooth" });
         }
       });
     });

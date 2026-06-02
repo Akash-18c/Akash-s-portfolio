@@ -1,30 +1,30 @@
-import { FaDownload } from "react-icons/fa";
+import { FaDownload, FaEye } from "react-icons/fa";
 import "./styles/About.css";
 
 const stats = [
-  { value: "2+",  label: "Years Exp." },
-  { value: "15+", label: "Projects"   },
-  { value: "8+",  label: "Clients"    },
+  { value: "4th", label: "Year BCA"   },
+  { value: "10+", label: "Projects"   },
+  { value: "AI",  label: "Focused"    },
 ];
 
 const timeline = [
   {
-    year: "2024 – Present",
-    role: "Full Stack Developer",
-    place: "Freelance",
-    desc: "Building modern web applications for clients worldwide using React, Next.js and Node.js.",
-  },
-  {
-    year: "2023 – 2024",
-    role: "Frontend Developer",
-    place: "",
-    desc: "Developed responsive UIs and design systems, improving performance by 40%.",
-  },
-  {
-    year: "2023 - 2027",
+    year: "2023 – 2027",
     role: "BCA - Computer Applications",
     place: "Adamas University",
-    desc: "Graduated with honours. Focused on software engineering and data structures.",
+    desc: "Currently in final year, focused on AI, Machine Learning, and Data Science.",
+  },
+  {
+    year: "Jul – Aug 2025",
+    role: "Full Stack Intern",
+    place: "Logix Infotech LLP, Noida",
+    desc: "1-month internship building and integrating full stack web features using modern technologies.",
+  },
+  {
+    year: "2024 – Present",
+    role: "AI & ML Projects",
+    place: "Self-driven",
+    desc: "Built Fake News Detection and Twitter Sentiment Analysis using Python, NLP, and machine learning.",
   },
 ];
 
@@ -72,10 +72,11 @@ const About = () => {
 
           {/* Bio */}
           <p className="about-bio para">
-            I'm a passionate Full Stack Developer who loves crafting beautiful,
-            performant web experiences. I bridge the gap between design and
-            engineering — turning ideas into polished digital products with clean
-            code and thoughtful UX.
+            BCA student passionate about Artificial Intelligence, Machine Learning, and Data Science.
+            Experienced in building projects like Fake News Detection and Twitter Sentiment Analysis
+            using Python and machine learning tools. Skilled in data analysis, NLP, and problem-solving,
+            with a strong interest in creating intelligent solutions for real-world challenges. Currently
+            exploring advanced AI technologies and seeking opportunities to grow as an AI and Software Developer.
           </p>
 
           {/* Stats */}
@@ -88,18 +89,28 @@ const About = () => {
             ))}
           </div>
 
-          {/* Resume button */}
-          <a
-            href="/resume.pdf"
-            download="Akash_Chakraborty_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="about-resume-btn"
-            data-cursor="disable"
-          >
-            <FaDownload />
-            Download Resume
-          </a>
+          {/* Resume buttons */}
+          <div className="about-resume-btns">
+            <a
+              href="/Akash_Chakraborty_Resume.pdf"
+              download="Akash_Chakraborty_Resume.pdf"
+              className="about-resume-btn"
+              data-cursor="disable"
+            >
+              <FaDownload />
+              Download
+            </a>
+            <a
+              href="/Akash_Chakraborty_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="about-resume-btn about-resume-btn--view"
+              data-cursor="disable"
+            >
+              <FaEye />
+              View
+            </a>
+          </div>
 
           {/* Timeline */}
           <div className="about-timeline">

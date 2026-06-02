@@ -19,9 +19,14 @@ const OverlayMenu = ({ isOpen, onClose }: Props) => {
 
   const handleClick = (href: string) => {
     onClose();
-    if (window.innerWidth > 1024 && smoother) {
-      setTimeout(() => smoother.scrollTo(href, true, "top top"), 700);
-    }
+    setTimeout(() => {
+      if (window.innerWidth > 1024 && smoother) {
+        smoother.scrollTo(href, true, "top top");
+      } else {
+        const el = document.querySelector(href) as HTMLElement;
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 700);
   };
 
   return (
@@ -130,7 +135,7 @@ const OverlayMenu = ({ isOpen, onClose }: Props) => {
             >
               <span>Akash Chakraborty</span>
               <span className="overlay-footer-dot" />
-              <span>Full Stack Developer</span>
+              <span>AI & ML Developer</span>
             </motion.div>
           </motion.div>
         )}
